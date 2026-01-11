@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sci-Fi Calculator</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body class="theme-blue">
+
+<div class="app">
+
+  <header>
+    <img src="icon-card.jpg" class="icon" alt="icon">
+    <h1>Sci-Fi Calculator</h1>
+
+    <select id="themeSelect">
+      <option value="black">Black</option>
+      <option value="grey">Grey</option>
+      <option value="white">White</option>
+      <option value="brown">Brown</option>
+      <option value="silver">Silver</option>
+      <option value="blue">Blue</option>
+    </select>
+  </header>
+
+  <nav>
+    <button onclick="showScreen('calc')">Calculator</button>
+    <button onclick="showScreen('units')">Units</button>
+    <button onclick="showScreen('graph')">Graph</button>
+    <button onclick="showScreen('history')">History</button>
+  </nav>
+
+  <!-- CALCULATOR -->
+  <div id="calc" class="screen active">
+    <input type="text" id="display" readonly>
+
+    <div class="buttons">
+      <button onclick="add('sin(')">sin</button>
+      <button onclick="add('cos(')">cos</button>
+      <button onclick="add('tan(')">tan</button>
+      <button onclick="add('Math.E')">e</button>
+
+      <button onclick="add('**2')">x²</button>
+      <button onclick="add('Math.sqrt(')">√</button>
+      <button onclick="add('x=>')">f(x)</button>
+      <button onclick="clearDisplay()">C</button>
+
+      <button onclick="add('7')">7</button>
+      <button onclick="add('8')">8</button>
+      <button onclick="add('9')">9</button>
+      <button onclick="add('/')">÷</button>
+
+      <button onclick="add('4')">4</button>
+      <button onclick="add('5')">5</button>
+      <button onclick="add('6')">6</button>
+      <button onclick="add('*')">×</button>
+
+      <button onclick="add('1')">1</button>
+      <button onclick="add('2')">2</button>
+      <button onclick="add('3')">3</button>
+      <button onclick="add('-')">−</button>
+
+      <button onclick="add('0')">0</button>
+      <button onclick="add('.')">.</button>
+      <button onclick="calculate()">=</button>
+      <button onclick="add('+')">+</button>
+    </div>
+  </div>
+
+  <!-- UNIT CONVERTER -->
+  <div id="units" class="screen">
+    <h2>Unit Converter</h2>
+
+    <select id="unitType" onchange="switchUnits()">
+      <option value="length">Length</option>
+      <option value="mass">Mass</option>
+      <option value="temp">Temperature</option>
+    </select>
+
+    <input type="number" id="unitInput" placeholder="Enter value">
+
+    <select id="fromUnit"></select>
+    <select id="toUnit"></select>
+
+    <button onclick="convertUnits()">Convert</button>
+    <p id="unitResult"></p>
+  </div>
+
+  <!-- GRAPH -->
+  <div id="graph" class="screen">
+    <h2>f(x) Graph</h2>
+    <input type="text" id="fxInput" placeholder="Example: x*x + 2">
+    <button onclick="drawGraph()">Plot</button>
+    <canvas id="graphCanvas" width="350" height="250"></canvas>
+  </div>
+
+  <!-- HISTORY -->
+  <div id="history" class="screen">
+    <h2>History</h2>
+    <ul id="historyList"></ul>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+      </html>
